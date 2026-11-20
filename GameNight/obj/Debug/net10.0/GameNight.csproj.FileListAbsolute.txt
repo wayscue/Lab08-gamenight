@@ -1,0 +1,14 @@
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\bin\Debug\net10.0\GameNight.exe
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\bin\Debug\net10.0\GameNight.deps.json
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\bin\Debug\net10.0\GameNight.runtimeconfig.json
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\bin\Debug\net10.0\GameNight.dll
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\bin\Debug\net10.0\GameNight.pdb
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.AssemblyInfoInputs.cache
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.AssemblyInfo.cs
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.csproj.CoreCompileInputs.cache
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.dll
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\refint\GameNight.dll
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.pdb
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\GameNight.genruntimeconfig.cache
+C:\Users\bbill\CSCI1250\Lab08-gamenight\GameNight\obj\Debug\net10.0\ref\GameNight.dll
