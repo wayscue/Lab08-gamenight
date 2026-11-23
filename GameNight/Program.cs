@@ -32,9 +32,11 @@ I have seperated the main body of my program into the three parts.
 //Part 1: The standings. This prints out the season totals, and the history file
 System.Console.WriteLine("=== GAME NIGHT LEADERBOARD ===");
 
-//I used an if/else loop to check whether the history file has anything in it.
-//I used this because I needed the program to decide between two actions. A while and a do/while will simply 
-//stop the program. I needed it to check a condition once, make a decision and move on
+/*
+I used an if/else loop to check whether the history file has anything in it.
+I used this because I needed the program to decide between two actions. A while and a do/while will simply 
+stop the program. I needed it to check a condition once, make a decision and move on
+*/
 if(history.Length == 0)
 {
     System.Console.WriteLine("No nights played yet");
@@ -43,9 +45,10 @@ if(history.Length == 0)
 else
 {
     System.Console.WriteLine($"Nights played: {history.Length}.");
-    
-    //A foreach here instead of a for. I don't need to keep track of indexes or select a certain set from the array.
-    //All I want is for it to regurgitate what it knows
+    /*
+    A foreach here instead of a for. I don't need to keep track of indexes or select a certain set from the array.
+    All I want is for it to regurgitate what it knows
+    */
     foreach(string line in history)
     {
         System.Console.WriteLine($"  {line}");
