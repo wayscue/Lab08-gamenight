@@ -18,7 +18,7 @@ string projectFolder = Path.GetFullPath(
 Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
 Directory.SetCurrentDirectory(projectFolder);
 
-//This creates the needed arrays by looking in the players.txt and points.txt files
+//This creates the needed arrays by looking in the players.txt, points.txt and history.txt files
 string[] players = File.ReadAllLines(PLAYERS_FILE);
 string[] points = File.ReadAllLines(POINTS_FILE);
 string[] history = File.ReadAllLines(HISTORY_FILE);
@@ -26,7 +26,7 @@ int night = history.Length + 1;
 
 /*
 I have put much of my program in methods. There is a detailed description above each method.
-I have seperated the main body of my program into the three parts, but most of the stuff happens in my methods
+I have seperated the main body of my program into the three parts.
 */
 
 //Part 1: The standings. This prints out the season totals, and the history file
@@ -59,9 +59,11 @@ System.Console.WriteLine("");
 
 //Part 2: The game night. This receives the new scores, adds them to the running total, and declares a winner for the night
 int[] tonight = new int[points.Length];
-//A for loop here because I am creating a new array using user input.
-//A foreach would not work because it requires something to be in the array.
-//I also needed to store certain numbers at certain locations
+/*
+A for loop here because I am creating a new array using user input.
+A foreach would not work because it requires something to be in the array.
+I also needed to store certain numbers at certain locations
+*/
     for(int i = 0; i < points.Length; i++)
     {        
         System.Console.WriteLine($"Please enter {players[i]}'s score");
@@ -87,23 +89,27 @@ string[] entry = { HistoryEntry(night, players, tonight) };
 File.AppendAllLines(HISTORY_FILE, entry);
 
 
-//This method finds the index position of the higest score no matter how many there are or where the score is.
-//If I added a method that allowed the user to input extra people and scores, it would still work becuase,
-//I used .Length instead of a number. If I had used a number, and the array length changed, my program crashes
+/*
+This method finds the index position of the higest score no matter how many there are or where the score is.
+If I added a method that allowed the user to input extra people and scores, it would still work becuase,
+I used .Length instead of a number. If I had used a number, and the array length changed, my program crashes
+*/
 static int LeaderIndexSeason(string[] points)
 {
     int leaderPosition = 0;
     int leader = 0;
     
-    //This loop is the most important. A foreach loop has no index indicator. 
-    //Without it the program knows there is a leader, but it doesn't know where it is, 
-    //which would make the program almost useless
+    /*This loop is the most important. A foreach loop has no index indicator. 
+    Without it the program knows there is a leader, but it doesn't know where it is, 
+    which would make the program almost useless
+    */
     for(int i = 0; i < points.Length; i++)
     {
         int score = Convert.ToInt32(points[i]);
-
-        //An if statement checks once and moves on. A while loop would work here only because I change the value of leader in the loop.
-        //Using a while is a bad idea, because as soon as you get rid of lead = score, bad things happen 
+        /*
+        An if statement checks once and moves on. A while loop would work here only because I change the value of leader in the loop.
+        Using a while is a bad idea, because as soon as you get rid of leader = score, bad things happen
+        */
         if(score > leader)
         {
             leader = score;
@@ -118,15 +124,18 @@ static int LeaderIndexTonight(int[] tempTonightArray)
 {
     int leaderPosition = 0;
     int leader = 0;
-
-    //This loop is the most important. A foreach loop has no index indicator. 
-    //Without it the program knows there is a leader, but it doesn't know where it is, 
-    //which would make the program almost useless
+    /*
+    This loop is the most important. A foreach loop has no index indicator. 
+    Without it the program knows there is a leader, but it doesn't know where it is, 
+    which would make the program almost useless
+    */
     for(int i = 0; i < tempTonightArray.Length; i++)
     {
         int score = Convert.ToInt32(tempTonightArray[i]);
-        //An if statement checks once and moves on. A while loop would work here only because I change the value of leader in the loop.
-        //Using a while is a bad idea, because as soon as you get rid of lead = score, bad things happen
+        /*
+        An if statement checks once and moves on. A while loop would work here only because I change the value of leader in the loop.
+        Using a while is a bad idea, because as soon as you get rid of lead = score, bad things happen
+        */
         if(score > leader)
         {
             leader = score;
@@ -135,9 +144,10 @@ static int LeaderIndexTonight(int[] tempTonightArray)
     }
     return leaderPosition;
 }
-
-//This method calculates the total points no matter how many score entries there are.
-//The foreach loop alows me to increase the array length without having to change the program
+/*
+This method calculates the total points no matter how many score entries there are.
+The foreach loop alows me to increase the array length without having to change the program
+*/
 static int TotalPoints(string[] points)
 {
     int pointTotal = 0;
@@ -149,12 +159,15 @@ static int TotalPoints(string[] points)
     }
     return pointTotal;
 }
+
 //This method prints the night. There is no return type, it does not claculate a value, it only prints
 static void PrintNight(string[] players, string[] points)
 {
 System.Console.WriteLine("Player".PadRight(10) + "Points");
-//A for loop because I have to put a specific player with a specific point count. Without it Grace could get Alan's points,
-//and Katherine could get Ada's, depending on how I wrote the program, which would defeat the whole purpose of the whole program
+/*
+A for loop because I have to put a specific player with a specific point count. Without it Grace could get Alan's points,
+and Katherine could get Ada's, depending on how I wrote the program, which would defeat the purpose of the whole program
+*/
 for(int i = 0; i < players.Length; i++)
 {
     System.Console.WriteLine($"{players[i].PadRight(10)} {points[i]}");
@@ -174,9 +187,10 @@ static string[] CalcSeason(string[] points, int[] tonight)
     }
     return points;
 }
-
-//This method returns a string variable that is ready to print to the history file.
-//This takes most of the values that were calcualted from the given information and formats it acording to the lab specs
+/*
+This method returns a string variable that is ready to print to the history file.
+This takes most of the values that were calcualted from the given information and formats it acording to the lab specs
+*/
 static string HistoryEntry(int night, string[] players, int[] points )
 {
     string entryFile = $"Night {night}: {players[LeaderIndexTonight(points)]} won with {points[LeaderIndexTonight(points)]}";
